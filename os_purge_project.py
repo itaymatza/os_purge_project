@@ -40,7 +40,7 @@ def gather_resource_info(conn, resource, project_id, module):
             return list(list_func(filters={'project_id': project_id}))
     except Exception as e:
         module.debug(f"Failed to gather {resource}s information: {str(e)}")
-        raise Exception(f"Failed to gather {resource}s information: {str(e)}")
+        raise Exception(f"Failed to gather {resource}s information: {str(e)}") from e
 
 def delete_resources(conn, resource, resources_info, module):
     """Deletes resources of a specific type."""
