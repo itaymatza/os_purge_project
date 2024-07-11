@@ -58,7 +58,7 @@ def delete_resources(conn, resource, resources_info, module):
                 delete_func(res.id)
     except Exception as e:
         module.debug(f"Failed to delete {resource}s: {str(e)}")
-        raise Exception(f"Failed to delete {resource}s: {str(e)}")
+        raise Exception(f"Failed to delete {resource}s: {str(e)}") from e
 
 def handle_port_deletion(conn, port, module):
     """Handles the special cases for deleting ports."""
